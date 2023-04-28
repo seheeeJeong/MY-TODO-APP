@@ -3,7 +3,7 @@
 SHOW databases;
 
 -- 데이터베이스 선택
-USE kdt;
+USE codingon;
 
 -- [DDL]
 -- 테이블 생성

@@ -1,5 +1,5 @@
-const { Todo } = require('../models');
-const { Op } = require('sequelize');
+const { Todo } = require("../models");
+const { Op } = require("sequelize");
 
 // GET /api/todos - show all todos (READ)
 exports.readTodos = async (_, res) => {
@@ -13,7 +13,7 @@ exports.readTodos = async (_, res) => {
 
 // POST /api/todo - create a new todo (CREATE)
 exports.createTodo = async (req, res) => {
-  console.log('>>>>', req.body);
+  console.log(">>>>", req.body);
   try {
     let newTodo = await Todo.create({
       title: req.body.title,
@@ -39,9 +39,9 @@ exports.updateTodo = async (req, res) => {
       },
       {
         where: {
-          id: { [Op.eq]: req.params.todoId },
+          id: { [Op.eq]: req.params.todoId }, // eq: 같다
         },
-      },
+      }
     );
     // console.log(idUpdated); // 0 or 1
 
@@ -56,11 +56,17 @@ exports.updateTodo = async (req, res) => {
   }
 };
 
+// DELETE /api/todo/:todoId - edit a specific todo (UPDATE)
 exports.deleteTodo = async (req, res) => {
   try {
     let isDeleted = await Todo.destroy({
       where: {
-        id: { [Op.eq]: req.params.todoId },
+        id: { [Op.eq]: req.params.todoId }, // delete from todo where id = todoId;
+        // delete 때 설정한 아이디만! 삭제
+        // id: { [Op.gte]: req.params.todoId }, // gte: ~이상 // delete from todo where id >= todoId;
+        // delete 때 설정한 아이디보다 크거나 같으면(이상)! 다 삭제
+        // id: { [Op.gt: req.params.todoId }, // gt: ~초과 // delete from todo where id > todoId;
+        // // delete 때 설정한 아이디보다 크면(초과)! 다 삭제
       },
       raw: true,
     });
