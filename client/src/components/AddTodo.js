@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+
 import "../styles/AddTodo.scss";
 
 const AddTodo = ({ addItem }) => {
@@ -29,7 +31,9 @@ const AddTodo = ({ addItem }) => {
         onChange={(e) => setTodoItem({ title: e.target.value })}
         onKeyPress={onEnterKeyDown}
       />
-      <button onClick={onButtonClick}>ADD</button>
+      <button onClick={onButtonClick}>
+        <AiOutlinePlus />
+      </button>
     </div>
   );
 };

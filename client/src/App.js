@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
+
 import "./styles/App.scss";
 
 function App() {
@@ -43,13 +45,22 @@ function App() {
 
   return (
     <div className="App">
+      <header>My Todo App</header>
+
       {/* todo 추가 input */}
       <AddTodo addItem={addItem} />
 
+      {/* 미션: 현재 투두 목록 개수 보이기 */}
+      <div className="left-todos">😜 {todoItems.length} Todos</div>
+
       {/* todo 목록 보이기 */}
-      {todoItems.map((item) => {
-        return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
-      })}
+      {todoItems.length > 0 ? (
+        todoItems.map((item) => {
+          return <Todo key={item.id} item={item} deleteItem={deleteItem} />;
+        })
+      ) : (
+        <p className="empty-todos">Todo를 추가해주세요 🐱‍🏍</p>
+      )}
     </div>
   );
 }

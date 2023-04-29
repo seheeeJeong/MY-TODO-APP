@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AiTwotoneDelete } from "react-icons/ai";
 import "../styles/Todo.scss";
 
 const Todo = ({ item, deleteItem }) => {
@@ -61,7 +62,9 @@ const Todo = ({ item, deleteItem }) => {
         onKeyPress={enterKeyEventHandler}
         onChange={editEventHandler}
       />
-      <button onClick={onDeleteButtonClick}>DELETE</button>
+      <button onClick={onDeleteButtonClick}>
+        <AiTwotoneDelete />
+      </button>
     </div>
   );
 };

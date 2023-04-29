@@ -1,1 +1,16 @@
 // AddTodo.js에 적용할 scss
+@import "./utils.scss";
+
+.AddTodo {
+  display: flex;
+  width: 100%;
+  padding: 36px 24px;
+
+  input {
+    @include input($color-green);
+  }
+
+  button {
+    @include button($color-yellow, $color-orange);
+  }
+}

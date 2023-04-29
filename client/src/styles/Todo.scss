@@ -1,1 +1,23 @@
 // Todo.js에 적용할 scss
+@import "./utils.scss";
+
+.Todo {
+  padding: 8px 24px;
+  display: flex;
+
+  input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: $color-navy;
+  }
+
+  input[type="text"] {
+    @include input($color-green);
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+
+  button {
+    @include button($color-yellow, $color-orange);
+  }
+}
