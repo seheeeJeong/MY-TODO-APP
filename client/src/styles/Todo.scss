@@ -21,3 +21,8 @@
     @include button($color-yellow, $color-orange);
   }
 }
+
+.checked {
+  opacity: 30%;
+  text-decoration-line: line-through;
+}

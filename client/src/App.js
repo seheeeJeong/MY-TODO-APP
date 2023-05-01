@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import Todo from "./components/Todo";
 import AddTodo from "./components/AddTodo";
 import axios from "axios";
+import { API_BASE_URL } from "./app-config";
 import "./styles/App.scss";
+
+console.log(API_BASE_URL);
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
@@ -11,7 +14,7 @@ function App() {
     const getTodos = async () => {
       const res = await axios.get("http://localhost:8000/api/todos");
 
-      setTodoItems(res.data);
+      setTodoItems(res.data); // 내림차순 할려면 res.data.reserve() 쓰기
     };
 
     getTodos();

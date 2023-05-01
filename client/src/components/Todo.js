@@ -14,6 +14,7 @@ const Todo = ({ item, deleteItem, updateItem }) => {
   // title input을 클릭; readOnly state를 false로 변경
   const offReadOnlyMode = () => {
     setReadOnly(false); // title input이 편집이 가능한 상태
+    //흐리게
   };
 
   // title input에서 enter키; readOnly state를 true로 변경
